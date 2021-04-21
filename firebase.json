@@ -1,0 +1,8 @@
+{
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
+  },
+  "hosting": {
+    "public": "dist"
+  }
+}
