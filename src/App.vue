@@ -1,41 +1,27 @@
 <template>
-  <main-logo/>
+  <MainLogo @animation:completed="onAnimationCompleted"/>
 
-  <h1 class="text">Coming soon . . .</h1>
+  <TextScrambler
+      :phrases="['Hi, nice to see you here!', 'This site is currently in development,', 'so please come back soon!']"
+      :duration="3000" :start="showText"/>
 </template>
 
 <script lang="ts">
-import MainLogo from "./components/MainLogo.vue";
-import {TextScrambler} from "./functions/TextScrampler"
+import {Options, Vue} from 'vue-class-component';
+import MainLogo from './components/MainLogo.vue';
+import TextScrambler from './components/TextScrambler.vue';
 
-export default {
-  name: 'App',
-  components: {MainLogo},
-  mounted() {
+@Options({
+  components: {
+    MainLogo,
+    TextScrambler
+  },
+})
+export default class App extends Vue {
+  public showText = false
 
-    const phrases = [
-      'Hey,',
-      'put here all the sentences',
-      'that you want to cycle',
-      'they will all be automatically displayed.',
-      'Just',
-      'Like',
-      'This.',
-      'Have fun :)'
-    ]
-
-    const el = document.querySelector('.text')
-    const fx = new TextScrambler(el)
-
-    let counter = 0
-    const next = () => {
-      fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 800)
-      })
-      counter = (counter + 1) % phrases.length
-    }
-
-    next()
+  onAnimationCompleted() {
+    this.showText = true
   }
 }
 </script>
@@ -66,6 +52,4 @@ html, body {
   background: rgb(60, 99, 119);
   background: linear-gradient(132deg, rgba(60, 99, 119, 1) 0%, rgba(89, 103, 113, 1) 40%, rgba(69, 100, 117, 1) 80%, rgba(60, 99, 119, 1) 100%);
 }
-
-
 </style>

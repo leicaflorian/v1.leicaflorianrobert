@@ -68,14 +68,17 @@
 </template>
 
 <script lang="ts">
+import {Vue} from 'vue-class-component';
 import anime from 'animejs/lib/anime';
 
-export default {
-  name: "MainLogo",
+export default class MainLogo extends Vue {
   mounted() {
     const timeline = anime.timeline({
       easing: 'easeInOutSine',
       duration: 4000,
+      complete: () => {
+        this.$emit("animation:completed")
+      }
     });
 
     // letter L

@@ -6,7 +6,7 @@ export class TextScrambler {
     frameRequest: any
     frame: any
 
-    constructor(el) {
+    constructor(el: HTMLElement) {
         this.el = el
         this.update = this.update.bind(this)
     }
@@ -37,7 +37,9 @@ export class TextScrambler {
         let output = ''
         let complete = 0
         for (let i = 0, n = this.queue.length; i < n; i++) {
-            let {from, to, start, end, char} = this.queue[i]
+            const {from, to, start, end} = this.queue[i]
+            let {char} = this.queue[i]
+
             if (this.frame >= end) {
                 complete++
                 output += to
