@@ -1,14 +1,42 @@
 <template>
-  <img alt="Leica Florian Robert logo" src="./assets/logo_white.svg" class="main-logo">
+  <main-logo/>
 
-  <h1>Coming soon . . .</h1>
+  <h1 class="text">Coming soon . . .</h1>
 </template>
 
-<script>
+<script lang="ts">
+import MainLogo from "./components/MainLogo.vue";
+import {TextScrambler} from "./functions/TextScrampler"
 
 export default {
   name: 'App',
-  components: {}
+  components: {MainLogo},
+  mounted() {
+
+    const phrases = [
+      'Hey,',
+      'put here all the sentences',
+      'that you want to cycle',
+      'they will all be automatically displayed.',
+      'Just',
+      'Like',
+      'This.',
+      'Have fun :)'
+    ]
+
+    const el = document.querySelector('.text')
+    const fx = new TextScrambler(el)
+
+    let counter = 0
+    const next = () => {
+      fx.setText(phrases[counter]).then(() => {
+        setTimeout(next, 800)
+      })
+      counter = (counter + 1) % phrases.length
+    }
+
+    next()
+  }
 }
 </script>
 
@@ -39,10 +67,5 @@ html, body {
   background: linear-gradient(132deg, rgba(60, 99, 119, 1) 0%, rgba(89, 103, 113, 1) 40%, rgba(69, 100, 117, 1) 80%, rgba(60, 99, 119, 1) 100%);
 }
 
-.main-logo {
-  width: 80%;
-  height: 80%;
-  max-width: 400px;
-  max-height: 400px;
-}
+
 </style>
