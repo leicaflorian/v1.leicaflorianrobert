@@ -12,6 +12,7 @@ import MainLogo from './components/MainLogo.vue';
 import TextScrambler from './components/TextScrambler.vue';
 
 @Options({
+  title: "asda",
   components: {
     MainLogo,
     TextScrambler
