@@ -65,73 +65,182 @@
       </mask>
     </defs>
   </svg>
+
+  <div class="text-initials-expand-container">
+    <span class="text-letter" v-for="block in text" :key="block.initial">
+      {{ block.initial }}<span class="text-to-expand">{{ block.text.slice(1) }}</span>
+    </span>
+  </div>
 </template>
 
 <script lang="ts">
-import {Vue} from 'vue-class-component';
+import {defineComponent} from 'vue'
 import anime from 'animejs/lib/anime';
 
-export default class MainLogo extends Vue {
+export default defineComponent({
+  name: "MainLogo",
+  props: {
+    showExpandableText: {
+      type: Boolean,
+      default: true
+    },
+    textDelay: {
+      type: Number,
+      default: 4000
+    }
+  },
+  data() {
+    return {
+      text: [
+        {
+          initial: "L",
+          text: "Leica"
+        }, {
+          initial: "F",
+          text: "Florian"
+        }, {
+          initial: "R",
+          text: "Robert"
+        }
+      ]
+    }
+  },
+  methods: {
+    intiLogoAnimation() {
+      const timeline = anime.timeline({
+        easing: 'easeInOutSine',
+        duration: 4000,
+        complete: () => {
+          this.$emit("animation:completed")
+        }
+      });
+
+      // letter L
+      timeline.add({
+        targets: '.logo-letter-l',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        delay: 0,
+      });
+
+      timeline.add({
+        targets: '.logo-letter-l-overlay',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        delay: 0,
+      }, "-=1000");
+
+      // Letter F
+      timeline.add({
+        targets: '.logo-letter-f',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        delay: anime.stagger(1000),
+      }, 2000);
+
+      // letter R
+      timeline.add({
+        targets: '.logo-letter-r',
+        // strokeWidth: 0.11,
+        strokeDashoffset: [anime.setDashoffset, 0],
+        delay: anime.stagger(1000),
+      }, 2000);
+
+      // Animation for light tracking on stroke path
+      /*    var path = anime.path('.logo-letter-l');
+
+          anime({
+            targets: '#light',
+            translateX: path('x'),
+            translateY: path('y'),
+            rotate: path('angle'),
+            easing: 'linear',
+            duration: 3000,
+            loop: true
+          });*/
+    },
+
+    initTextExpansion() {
+      // I'm using a timeout to wait for the dom to render and calculate correctly the with for the collapsed text.
+      setTimeout(() => {
+        const timeline = anime.timeline({
+          delay: 4000,
+          complete() {
+            document.querySelectorAll(".text-letter .text-to-expand")
+                .forEach((el: any) => {
+                  el.style.width = "auto"
+                })
+          }
+        })
+
+        timeline.add({
+          targets: ".text-letter:nth-child(1)",
+          translateX: ["-400%", 0],
+          opacity: [0, 1],
+          easing: "easeInOutBack",
+          duration: 2000,
+          delay: this.textDelay
+        }, 0)
+
+        timeline.add({
+          targets: ".text-letter:nth-child(2)",
+          translateY: ["200%", 0],
+          opacity: [0, 1],
+          easing: "easeInOutBack",
+          duration: 1500,
+          delay: this.textDelay
+        }, 0)
+
+        timeline.add({
+          targets: ".text-letter:nth-child(3)",
+          translateX: ["400%", 0],
+          opacity: [0, 1],
+          easing: "easeInOutBack",
+          duration: 2000,
+          delay: this.textDelay
+        }, 0)
+
+        /*timeline.add({
+          targets: filter,
+          blur: -1,
+          round: 1,
+          update: function (test: any, b: any) {
+            console.log(b)
+            if (filter.blur > 0) {
+              //letters.style.filter = `blur(${filter.blur}px)`
+            } else {
+              //letters.style.filter = ``
+            }
+          }
+        })*/
+
+        timeline.add({
+          targets: ".text-letter .text-to-expand",
+          opacity: [0, 1],
+          easing: "easeOutElastic",
+          duration: 1500,
+          width: (el: HTMLElement) => {
+            console.log(el.scrollWidth)
+            return el.scrollWidth
+          },
+          delay: anime.stagger(100, {start: 500})
+        })
+      }, 100)
+    }
+  },
+
   mounted() {
-    const timeline = anime.timeline({
-      easing: 'easeInOutSine',
-      duration: 4000,
-      complete: () => {
-        this.$emit("animation:completed")
-      }
-    });
+    this.intiLogoAnimation()
 
-    // letter L
-    timeline.add({
-      targets: '.logo-letter-l',
-      strokeDashoffset: [anime.setDashoffset, 0],
-      delay: 0,
-    });
-
-    timeline.add({
-      targets: '.logo-letter-l-overlay',
-      strokeDashoffset: [anime.setDashoffset, 0],
-      delay: 0,
-    }, "-=1000");
-
-    // Letter F
-    timeline.add({
-      targets: '.logo-letter-f',
-      strokeDashoffset: [anime.setDashoffset, 0],
-      delay: anime.stagger(1000),
-    }, 2000);
-
-    // letter R
-    timeline.add({
-      targets: '.logo-letter-r',
-      // strokeWidth: 0.11,
-      strokeDashoffset: [anime.setDashoffset, 0],
-      delay: anime.stagger(1000),
-    }, 2000);
-
-    // Animation for light tracking on stroke path
-    /*    var path = anime.path('.logo-letter-l');
-
-        anime({
-          targets: '#light',
-          translateX: path('x'),
-          translateY: path('y'),
-          rotate: path('angle'),
-          easing: 'linear',
-          duration: 3000,
-          loop: true
-        });*/
+    if (this.showExpandableText) {
+      this.initTextExpansion()
+    }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
 .main-logo {
-  width: 80%;
-  height: 80%;
+  width: 100%;
   max-width: 400px;
-  max-height: 400px;
-
+  max-height: 80%;
 
   .svg-path {
     fill: none;
@@ -146,5 +255,32 @@ export default class MainLogo extends Vue {
   display: inline-block;
 }
 
+.text-initials-expand-container {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-family: Vonique64, Helvetica, Arial, sans-serif;
+
+  .text-letter {
+    display: inline-flex;
+    font-size: 2em;
+    margin: 0 8px;
+
+    .text-to-expand {
+      width: 0;
+      display: inline-block;
+      overflow: hidden;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .text-initials-expand-container {
+    .text-letter {
+      font-size: 1em;
+    }
+  }
+}
 
 </style>
