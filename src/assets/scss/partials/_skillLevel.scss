@@ -1,0 +1,13 @@
+.skill-level {
+  &:not(:first-child) {
+    margin-top: $spacer * 1.5;
+  }
+
+  .progress {
+    height: $spacer / 3;
+  }
+
+  .progress-bar{
+    background-color: $color-primary ;
+  }
+}

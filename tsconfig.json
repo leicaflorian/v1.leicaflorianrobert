@@ -14,7 +14,7 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "./@types/AnimeJs"
+      "./@types/*",
     ],
     "paths": {
       "@/*": [

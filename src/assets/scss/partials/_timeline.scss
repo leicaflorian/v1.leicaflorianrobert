@@ -1,0 +1,121 @@
+.timeline-wrapper {
+  position: relative;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: $spacer / 3;
+    background: $color-primary;
+  }
+
+  &:after {
+    top: unset;
+    left: 0;
+    bottom: 0;
+  }
+
+  .timeline-item {
+    .timeline-side {
+      position: relative;
+      padding-top: $spacer *3;
+      padding-bottom: $spacer *3;
+
+
+      &:first-child {
+        text-align: right;
+      }
+
+      &:last-child {
+        text-align: left;
+        padding-left: $spacer *2;
+        display: flex;
+        align-items: flex-start;
+        line-height: 1.6em;
+
+
+        &:before {
+          content: "";
+          position: absolute;
+          background: $color-primary;
+          width: $spacer;
+          height: 100%;
+          left: 0;
+          top: 0;
+        }
+
+      }
+
+      .timeline-title {
+        font-weight: 600;
+        color: $color-primary;
+      }
+
+      .timeline-line {
+        width: $spacer * 4;
+        height: $spacer / 3;
+        background: $color-primary;
+        margin-left: -$spacer;
+        margin-right: $spacer * 2;
+        display: inline-block;
+        margin-top: calc(1.6em / 2 - (#{$spacer / 3} / 2));
+
+
+        &:after {
+          content: "";
+          width: 20px;
+          height: 20px;
+          border: solid $spacer / 3 $color-primary;
+          display: inline-block;
+          border-radius: 50%;
+          transform: translateY(calc(-50% + (#{$spacer / 3} / 2)));
+          position: relative;
+          left: calc(100% - 4px);
+        }
+      }
+
+      .timeline-line-text {
+        background: $color-primary;
+        padding-left: $spacer;
+        padding-right: $spacer;
+        color: white
+      }
+    }
+
+
+    &:nth-child(even) .row {
+      flex-direction: row-reverse;
+
+      .timeline-side {
+        &:first-child {
+          text-align: left;
+        }
+
+        &:last-child {
+          text-align: right;
+          padding-right: $spacer * 2;
+          padding-left: $spacer;
+          flex-direction: row-reverse;
+          justify-content: flex-start;
+
+          &:before {
+            left: unset;
+            right: 0;
+          }
+        }
+
+        .timeline-line {
+          margin-right: -$spacer;
+          margin-left: $spacer * 2;
+
+          &:after {
+            left: unset;
+            right: calc(100% - 4px);
+          }
+        }
+      }
+    }
+  }
+}
