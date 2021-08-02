@@ -1,0 +1,49 @@
+
+.overlay_effect {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3
+}
+
+.overlay_effect:after {
+    background-color: #fff;
+    z-index: 1
+}
+
+.overlay_effect:after,.overlay_effect:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0
+}
+
+body.loaded .overlay_effect:before {
+    z-index: 2;
+    background-color: #000;
+    /* -webkit-animation:anim 2s cubic-bezier(.77,0,.175,1) both; */
+    animation: anim 2s cubic-bezier(.77,0,.175,1) both;
+}
+
+body.loaded .overlay_effect:after {
+    -webkit-animation: anim2 2s cubic-bezier(.77,0,.175,1) both;
+    animation: anim2 2s cubic-bezier(.77,0,.175,1) both
+}
+
+@keyframes anim {
+    0% {
+        transform: translateX(-100%)
+    }
+
+    50% {
+        transform: translateX(0)
+    }
+
+    to {
+        transform: translateX(100%)
+    }
+}
