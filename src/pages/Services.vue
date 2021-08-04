@@ -3,8 +3,8 @@
     <div class="container">
       <PageTitle identifier="services"></PageTitle>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mt-4">
-        <div class="col">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+        <div class="col" >
           <FeatureBox icon="fa-pencil-ruler" :title="$t('services.web_dev.title')"
                       :text="$t('services.web_dev.text')"></FeatureBox>
         </div>

@@ -1,10 +1,11 @@
 import "./firebase";
 
 import {createApp} from 'vue'
-import { createI18n } from 'vue-i18n'
+import {createI18n} from 'vue-i18n'
 import App from './App.vue'
 import {store} from "@/store";
 import itMessages from "./locales/it.js";
+import "swiped-events"
 
 const i18n = createI18n({
     locale: 'it', // set locale
@@ -16,11 +17,14 @@ const i18n = createI18n({
     },
 })
 
-const app = createApp(App)
+const app: any = createApp(App)
 
-app.config.performance  = true
+
+app.config.performance = true
 
 app.use(i18n)
 app.use(store)
+
 app.mount('#app')
+
 

@@ -9,6 +9,9 @@ export default {
     "contact": "Contatti",
     "contact-title": "Mettiamoci in contatto",
   },
+  home: {
+    scroll: "Scorri"
+  },
   about: {
     hi: "Ciao, sono",
     content: `Sono nato nel 1989 nella città di Braila, Romania. Ho vissuto lì per 10 anni, dopodiché sono venuto in

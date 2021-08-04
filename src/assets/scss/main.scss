@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap");
-/*@import "../vonique64-font.css";*/
+@import "fonts/vonique64";
 
 @import "./partials/variables";
 
 @import "~vue2-animate/src/sass/vue2-animate";
+@import "~animate.css/animate.min.css";
+@import "~aos/dist/aos.css";
 @import "./partials/bootstrap";
 
 @import "./partials/page";
@@ -13,6 +15,9 @@
 @import "./partials/timeline";
 @import "./partials/skillLevel";
 @import "./partials/form";
+@import "./partials/lLines";
+@import "./partials/buttons";
+@import "./partials/mainLogo";
 
 
 html,
@@ -43,4 +48,16 @@ body {
 
 
 
+}
+
+@include media-breakpoint-up(md) {
+  .fs-md-5{
+    font-size: $font-size-base * 1.25;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .fs-lg-5{
+    font-size: $font-size-base * 1.25;
+  }
 }

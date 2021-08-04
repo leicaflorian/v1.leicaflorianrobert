@@ -1,0 +1,56 @@
+.btn {
+  border-radius: 0 !important;
+}
+
+[class*="btn-outline"] {
+  border: none;
+  position: relative;
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    transition: all .2s ease-in-out;
+
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+
+  &:hover {
+    &:after, &:before {
+      width: 100%;
+    }
+  }
+}
+
+.btn-outline-primary {
+  &:before {
+    border-top: solid 3px $primary;
+    border-left: solid 3px $primary;
+  }
+
+  &:after {
+    border-bottom: solid 3px $primary;
+    border-right: solid 3px $primary;
+  }
+}
+
+.btn-outline-success {
+  &:before {
+    border-top: solid 3px $success;
+    border-left: solid 3px $success;
+  }
+
+  &:after {
+    border-bottom: solid 3px $success;
+    border-right: solid 3px $success;
+  }
+}

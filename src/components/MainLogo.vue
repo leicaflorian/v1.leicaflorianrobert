@@ -107,6 +107,8 @@ export default defineComponent({
   },
   methods: {
     intiLogoAnimation() {
+      const initialDelay = 2000;
+
       const timeline = anime.timeline({
         easing: 'easeInOutSine',
         duration: 4000,
@@ -119,14 +121,13 @@ export default defineComponent({
       timeline.add({
         targets: '.logo-letter-l',
         strokeDashoffset: [anime.setDashoffset, 0],
-        delay: 0,
+        delay: initialDelay,
       });
 
       timeline.add({
         targets: '.logo-letter-l-overlay',
         strokeDashoffset: [anime.setDashoffset, 0],
-        delay: 0,
-      }, "-=1000");
+      }, initialDelay + 1000);
 
       // Letter F
       timeline.add({
@@ -237,50 +238,6 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.main-logo {
-  width: 100%;
-  max-width: 400px;
-  max-height: 80%;
 
-  .svg-path {
-    fill: none;
-    stroke-width: 0.09px;
-  }
-}
-
-#light {
-  background-color: red;
-  width: 5px;
-  height: 5px;
-  display: inline-block;
-}
-
-.text-initials-expand-container {
-  overflow: hidden;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  font-family: Vonique64, Helvetica, Arial, sans-serif;
-
-  .text-letter {
-    display: inline-flex;
-    font-size: 2em;
-    margin: 0 8px;
-
-    .text-to-expand {
-      width: 0;
-      display: inline-block;
-      overflow: hidden;
-    }
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .text-initials-expand-container {
-    .text-letter {
-      font-size: 1em;
-    }
-  }
-}
 
 </style>

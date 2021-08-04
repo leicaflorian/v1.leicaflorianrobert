@@ -1,0 +1,55 @@
+.main-logo {
+  width: 100%;
+  max-width: 400px;
+  max-height: 80vh;
+
+  .svg-path {
+    fill: none;
+    stroke-width: 0.09px;
+  }
+}
+
+#light {
+  background-color: red;
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+}
+
+.text-initials-expand-container {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  font-family: Vonique64, Helvetica, Arial, sans-serif;
+
+  .text-letter {
+    display: inline-flex;
+    font-size: $font-size-base * 2;
+    margin: 0 8px;
+
+    .text-to-expand {
+      width: 0;
+      display: inline-block;
+      overflow: hidden;
+    }
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+  .text-initials-expand-container {
+    .text-letter {
+      font-size: $font-size-base * 1.5;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .text-initials-expand-container {
+    .text-letter {
+      font-size: $font-size-base * 1.25;
+      margin: 0 4px;
+    }
+  }
+}

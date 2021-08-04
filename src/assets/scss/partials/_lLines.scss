@@ -1,0 +1,37 @@
+.l-line-wrapper {
+  position: relative;
+  display: inline-block;
+
+  &.light {
+    .l-line-left, .l-line-right {
+      border-color: white;
+    }
+  }
+}
+
+.l-line-content {
+  padding: $spacer;
+  opacity: 0;
+  transform: scale(.8);
+}
+
+.l-line-left, .l-line-right {
+  border-style: solid;
+  border-color: $primary;
+  border-width: 0;
+  width: calc(50% + 2px);
+  height: 100%;
+  position: absolute;
+}
+
+.l-line-left {
+  left: 2px;
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+}
+
+.l-line-right {
+  right: 2px;
+  border-top-width: 3px;
+  border-left-width: 3px;
+}

@@ -1,6 +1,6 @@
 <template>
-  <h2 class="page-subtitle">{{ $t("menu." + identifier) }}</h2>
-  <h1 class="page-title fw-bold">{{ $t("menu." + identifier + "-title") }}</h1>
+  <h2 class="page-subtitle" data-aos="fade-left">{{ $t("menu." + identifier) }}</h2>
+  <h1 class="page-title fw-bold" data-aos="fade-right">{{ $t("menu." + identifier + "-title") }}</h1>
 </template>
 
 <script lang="ts">

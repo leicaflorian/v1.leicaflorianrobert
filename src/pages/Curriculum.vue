@@ -3,7 +3,7 @@
     <div class="container">
       <PageTitle identifier="curriculum"></PageTitle>
 
-      <div class="row row-cols-1 row-cols-sm-2 g-4">
+      <div class="row row-cols-1 row-cols-sm-2 g-md-5">
         <div class="col">
           <SkillLevel v-for="skill in programmingSkills" :key="skill.title" v-bind="skill"></SkillLevel>
         </div>
@@ -14,9 +14,13 @@
     </div>
 
     <div class="bg-light w-100">
-      <div class="container">
+      <div class="container overflow-hidden">
         <div class="timeline-wrapper">
-          <WorkExperience v-for="experience in workExperiences" :key="experience.title" v-bind="experience"></WorkExperience>
+          <div class="timeline-line-before" data-aos="fade-left" data-aos-delay="300"></div>
+          <WorkExperience v-for="(experience, i) in workExperiences" :key="experience.title" v-bind="experience"
+                          :index="i"
+                          ></WorkExperience>
+          <div class="timeline-line-after" data-aos="fade-right"></div>
         </div>
       </div>
     </div>
@@ -176,5 +180,6 @@ export default class Curriculum extends Vue {
       }
     ]
   }
+
 }
 </script>
