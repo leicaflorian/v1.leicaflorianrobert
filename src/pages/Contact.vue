@@ -130,6 +130,8 @@ export default class Contact extends Vue {
   }
 
   async sendEmail() {
+    this.validate();
+
     if (this.formErrors && Object.keys(this.formErrors).length > 0) {
       return;
     }
