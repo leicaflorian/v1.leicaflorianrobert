@@ -1,6 +1,9 @@
 .l-line-wrapper {
   position: relative;
   display: inline-block;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  cursor: default;
 
   &.light {
     .l-line-left, .l-line-right {
@@ -12,7 +15,7 @@
 .l-line-content {
   padding: $spacer;
   opacity: 0;
-  transform: scale(.8);
+  transform: scale(.8) translateZ(20px)
 }
 
 .l-line-left, .l-line-right {
@@ -22,6 +25,8 @@
   width: calc(50% + 2px);
   height: 100%;
   position: absolute;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .l-line-left {

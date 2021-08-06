@@ -4,12 +4,12 @@
     <div class="container">
       <PageTitle identifier="about"></PageTitle>
 
-      <div class="row align-items-lg-center">
+      <div class="row">
         <div class="col-md-8">
           <h3 class="text-start mb-3" data-aos="fade-right" data-aos-delay="200">
             {{ $t("about.hi") }}
             <strong class="border-bottom border-5 text-primary">
-              Florian Leica</strong>
+              Florian Leica</strong>,
           </h3>
           <p class="lead text-start" v-html="$t('about.content')" data-aos="fade-right" data-aos-delay="400"></p>
         </div>

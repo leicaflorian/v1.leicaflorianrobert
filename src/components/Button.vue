@@ -1,7 +1,14 @@
 <template>
-  <button :type="submit ? 'submit' : 'button'" class="btn" :class="[type, size]" @click="$emit('click', $event)">
+  <button :type="submit ? 'submit' : 'button'" class="btn" :class="[type, size]" @click="$emit('click', $event)"
+          :disabled="loading">
+
     {{ text }}
-    <i class="fas ms-2" :class="icon" v-if="icon"></i>
+    <i class="fas ms-2" :class="icon" v-if="icon && !loading"></i>
+
+    <div class="spinner-border spinner-border-sm ms-2" role="status" v-if="loading">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+
   </button>
 </template>
 
@@ -27,5 +34,8 @@ export default class Button extends Vue {
 
   @Prop({type: Boolean})
   submit!: boolean
+
+  @Prop({type: Boolean})
+  loading!: boolean
 }
 </script>

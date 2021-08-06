@@ -1,3 +1,7 @@
+header {
+z-index: 3;
+}
+
 .navbar {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -14,7 +18,7 @@
 
   @include media-breakpoint-down(md) {
     overflow: auto;
-    max-height: calc(100vh - 82px);
+    max-height: calc(var(--vh) - 82px);
   }
 }
 
@@ -32,7 +36,7 @@
 
 
     &.nav-item-logo {
-      background: white;
+      /*background: white;*/
 
       a {
         padding: 0 $spacer * 2;
@@ -67,18 +71,18 @@
   @include media-breakpoint-down(md) {
     .nav-item {
       a.nav-link {
-        color: $primary;
-        text-shadow: 0 0 0 $primary,
-        0 0 0 $primary,
-        0 0 0 $primary,
-        0 0 0 $primary;
+        color: white;
+        text-shadow: 0 0 0 white,
+        0 0 0 white,
+        0 0 0 white,
+        0 0 0 white;
 
         &.active {
-          color: $primary !important;
-          text-shadow: -.5px -.5px .1px $primary,
-          .5px -.5px .1px $primary,
-          -.5px .5px .1px $primary,
-          .5px .5px .1px $primary;
+          color: white !important;
+          text-shadow: -.5px -.5px .1px white,
+          .5px -.5px .1px white,
+          -.5px .5px .1px white,
+          .5px .5px .1px white;
         }
       }
     }
@@ -90,8 +94,9 @@
   background: $primary;
   width: 100px;
   position: absolute;
-  bottom: -4px;
+  bottom: -5px;
   transition: all .3s ease-in-out;
+  z-index: 4;
 }
 
 .nav-item-mobile-borders {
@@ -104,6 +109,7 @@
   .l-line-left, .l-line-right {
     top: 0;
     width: 40%;
+    border-color: white;
   }
 
   .l-line-left {

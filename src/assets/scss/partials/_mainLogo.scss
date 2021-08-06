@@ -1,7 +1,7 @@
 .main-logo {
   width: 100%;
   max-width: 400px;
-  max-height: 80vh;
+  max-height: calc(var(--vh-1) * 80);
 
   .svg-path {
     fill: none;

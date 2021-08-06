@@ -15,6 +15,7 @@ const i18n = createI18n({
             ...itMessages
         }
     },
+    warnHtmlInMessage: "off"
 })
 
 const app: any = createApp(App)
@@ -27,4 +28,20 @@ app.use(store)
 
 app.mount('#app')
 
+function calcVH() {
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    const vh = window.innerHeight * 0.01;
+
+// Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh * 100}px`);
+    document.documentElement.style.setProperty('--vh-1', `${vh}px`);
+}
+
+
+// We listen to the resize event
+window.addEventListener('resize', () => {
+   calcVH()
+});
+
+calcVH();
 

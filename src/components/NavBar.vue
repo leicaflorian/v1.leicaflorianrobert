@@ -4,7 +4,7 @@
          :style="style">
       <div class="container">
         <a class="navbar-brand d-none" href="#" @click.prevent="onHomeClick">
-          <img src="logo_navbar.svg" alt="Logo Leica Florian Robert" height="50" class="d-inline-block">
+          <img src="logo_white.svg" alt="Logo Leica Florian Robert" height="50" class="d-inline-block">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -25,14 +25,14 @@
           <ul class="navbar-nav ml-auto mb-2 mb-md-0 w-100">
             <li class="nav-item nav-item-logo d-md-none py-2">
               <a class="nav-item" href="#" @click.prevent="onHomeClick">
-                <img src="logo_navbar.svg" alt="Logo Leica Florian Robert" height="50" class="d-inline-block">
+                <img src="logo_white.svg" alt="Logo Leica Florian Robert" height="50" class="d-inline-block">
               </a>
             </li>
 
             <template v-for="(menu, i) in menuList" :key="i">
               <li class="nav-item nav-item-logo d-none d-md-flex" v-if="i === 2" :class="{active: i === 0}">
                 <a class="nav-item" :class="{active: i === 0}" href="#" @click.prevent="onHomeClick">
-                  <img src="logo_navbar.svg" alt="Logo Leica Florian Robert" height="50" class="d-inline-block">
+                  <img src="logo_white.svg" alt="Logo Leica Florian Robert" height="70" class="d-inline-block">
                 </a>
               </li>
 
@@ -107,6 +107,8 @@ export default class NavBar extends Vue {
 
         setTimeout(() => {
           container.classList.add("active")
+          container.scrollTop = 0;
+          container.dispatchEvent(new CustomEvent("scroll"))
         }, 200)
       }, 200)
     }
@@ -123,7 +125,7 @@ export default class NavBar extends Vue {
       this.pagesContainer.querySelector('.page-home')?.classList.add("active")
     }
 
-    this.setActiveItem("about")
+    this.onLinkClick("about")
 
   }
 
@@ -208,6 +210,11 @@ export default class NavBar extends Vue {
 
     this.mainNavbarLinks?.forEach((el: Node) => {
       const navLink: HTMLLinkElement = el as HTMLLinkElement
+
+      if (!navLink) {
+        return
+      }
+
       const href = navLink.getAttributeNode("href")?.nodeValue;
 
       if (href && href === link) {

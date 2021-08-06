@@ -13,13 +13,13 @@
       </div>
     </div>
 
-    <div class="bg-light w-100">
+    <div class="w-100" style="background-color: rgba(248, 249, 250, .2)">
       <div class="container overflow-hidden">
-        <div class="timeline-wrapper">
+        <div class="timeline-wrapper" ref="timelineWrapper">
           <div class="timeline-line-before" data-aos="fade-left" data-aos-delay="300"></div>
           <WorkExperience v-for="(experience, i) in workExperiences" :key="experience.title" v-bind="experience"
                           :index="i"
-                          ></WorkExperience>
+          ></WorkExperience>
           <div class="timeline-line-after" data-aos="fade-right"></div>
         </div>
       </div>
@@ -33,6 +33,7 @@ import {menuList} from "@/functions/MenuList";
 import PageTitle from "@/components/PageTitle.vue";
 import SkillLevel from "@/components/SkillLevel.vue";
 import WorkExperience from "@/components/WorkExperience.vue";
+import VanillaTilt from "vanilla-tilt";
 
 @Component({
   name: "Curriculum",
@@ -43,6 +44,10 @@ import WorkExperience from "@/components/WorkExperience.vue";
   },
 })
 export default class Curriculum extends Vue {
+  $refs!: {
+    timelineWrapper: HTMLElement
+  }
+
   get color() {
     return menuList.find(el => el.id === "curriculum")?.bg_color;
   }
@@ -179,6 +184,14 @@ export default class Curriculum extends Vue {
         content: this.$t("workExperiences.1.content")
       }
     ]
+  }
+
+  mounted() {
+    VanillaTilt.init(this.$refs.timelineWrapper.querySelectorAll(".timeline-item") as any, {
+      axis: "x",
+      max: 10,
+      speed: 100
+    })
   }
 
 }

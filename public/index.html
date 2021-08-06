@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>Leica Florian Robert | Personal Website</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1,viewport-fit=cover">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>Leica Florian Robert | Personal Website</title>
 
-    <script src="https://kit.fontawesome.com/befaa647e5.js"></script>
-  </head>
-  <body data-aos-easing="ease-in" data-aos-duration="500" data-aos-delay="0">
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+  <script src="https://kit.fontawesome.com/befaa647e5.js"></script>
+
+  <style>
+      html, body {
+          background-color: black;
+      }
+
+      #c {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+  </style>
+</head>
+<body data-aos-easing="ease-in" data-aos-duration="500" data-aos-delay="0">
+<noscript>
+  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+    Please enable it to continue.</strong>
+</noscript>
+
+<canvas id="c"></canvas>
+<div id="app"></div>
+
+
+<!-- built files will be auto injected -->
+</body>
 </html>

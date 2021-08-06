@@ -1,8 +1,8 @@
 <template>
-  <div class="mb-4" ref="formInput" data-aos="fade-in">
+  <div class="mb-4" ref="formInput" data-aos="fade-in" data-aos-delay="400">
     <label :for="name + 'Input'" class="form-label" v-html="label" data-aos="fade-left" data-aos-delay="1000"></label>
 
-    <div class="mb-4 position-relative" ref="input_group" :class="{'input-group': inputGroup}" >
+    <div class="position-relative form-input-wrapper" ref="input_group" :class="{'input-group': inputGroup, 'has-error': error}">
       <span class="input-group-text" data-aos="fade-right" data-aos-delay="1200" v-if="inputGroup">
         <i class="fas" :class="icon" v-if="icon"></i>
       </span>
@@ -10,8 +10,9 @@
       <div :class="{'input-group-content': inputGroup}" data-aos="fade-in" data-aos-delay="1400">
         <textarea v-if="type === 'textarea'"
                   class="form-control"
+                  :class="{'is-invalid': error}"
                   :id="name + 'Input'"
-                  :placeholder="placeholder"
+                  :placeholder="placeholderEscaped"
                   :name="name"
                   @focusin="onFocusIn"
                   @focusout="onFocusOut"
@@ -20,14 +21,19 @@
 
         <input v-else
                class="form-control"
+               :class="{'is-invalid': error}"
                :type="type"
                :id="name + 'Input'"
-               :placeholder="placeholder"
+               :placeholder="placeholderEscaped"
                :name="name"
                @focusin="onFocusIn"
                @focusout="onFocusOut"
                v-model="inputValue"
         >
+
+        <div class="invalid-feedback" v-if="error">
+          {{ error[0] }}
+        </div>
       </div>
 
 
@@ -69,11 +75,21 @@ export default class FormInput extends Vue {
   @Prop({type: Boolean})
   inputGroup!: boolean
 
+  @Prop({type: Boolean})
+  required!: boolean
+
+  @Prop({type: Array})
+  error!: string[]
+
   inputValue: string = this.modelValue ?? ""
 
   $refs!: {
     input_group: HTMLElement
     formInput: HTMLElement & { startAnimation: () => void }
+  }
+
+  get placeholderEscaped() {
+    return this.placeholder;
   }
 
   onFocusIn() {
@@ -94,19 +110,19 @@ export default class FormInput extends Vue {
   startAnimation() {
     const tl = anime.timeline({
       easing: "easeOutExpo",
-      duration: 1000
+      duration: 1500
     })
 
     tl.add({
       targets: this.$refs.formInput.querySelector(".l-line-left"),
       right: 0,
       width: 60
-    }, 500)
+    }, 200)
 
     tl.add({
       targets: this.$refs.formInput.querySelector(".l-line-right"),
       width: 60
-    }, 500)
+    }, 200)
   }
 
   mounted() {

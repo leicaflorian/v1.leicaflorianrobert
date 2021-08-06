@@ -6,4 +6,11 @@ $color-primary: $primary;
 
 $animationDuration: 0.5s;
 
-$nav-link-padding-x: 1.5rem
+$nav-link-padding-x: 1.5rem;
+
+:root {
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom); /* THIS ONE GETS US THE HOME BAR HEIGHT */
+  --sal: env(safe-area-inset-left);
+}

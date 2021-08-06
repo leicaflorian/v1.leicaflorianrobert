@@ -24,6 +24,7 @@ import Curriculum from "@/pages/Curriculum.vue";
 import Contact from "@/pages/Contact.vue";
 import NavBar from "@/components/NavBar.vue";
 import "../node_modules/bootstrap/js/src/collapse";
+import "./functions/ColorChanging"
 
 @Component({
   components: {NavBar, Services, Home, About, Curriculum, Contact},
@@ -108,7 +109,8 @@ export default class App extends Vue {
       }
     })
 
-    this.$refs.pagesContainer.addEventListener('swiped-up', () => {
+    this.$refs.pagesContainer.querySelector(".page-home")?.addEventListener('swiped-up', (e) => {
+      console.log(e)
       this.scrollToHorizontalContainer();
     })
 
@@ -123,15 +125,19 @@ export default class App extends Vue {
         return
       }
 
-      const activeElement: HTMLElement = horizontalContainer.querySelector(".page.active") as HTMLElement;
+      setTimeout(() => {
+        const activeElement: HTMLElement = horizontalContainer.querySelector(".page.active") as HTMLElement;
 
-      if (activeElement) {
-        horizontalContainer.scrollLeft = activeElement.offsetLeft
-      }
+        if (activeElement) {
+          horizontalContainer.scrollLeft = activeElement.offsetLeft
+        }
 
-      if ((horizontalContainer.parentNode as HTMLElement).classList.contains("active")) {
-        this.$refs.pagesContainer.scrollTop = this.$refs.pagesContainer.offsetHeight
-      }
+        if ((horizontalContainer.parentNode as HTMLElement).classList.contains("active")) {
+          console.log(this.$refs.pagesContainer.offsetHeight)
+          this.$refs.pagesContainer.scrollTop = this.$refs.pagesContainer.offsetHeight
+        }
+      }, 50)
+
     })
 
 

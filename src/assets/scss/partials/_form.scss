@@ -1,4 +1,19 @@
 form {
+
+  .form-input-wrapper {
+    margin-bottom: $spacer*1.5;
+
+    &.focus {
+      .l-line-left {
+        width: calc(100%) !important;
+      }
+    }
+
+    &.has-error {
+      margin-bottom: $spacer*2.5;
+    }
+  }
+
   .form-label {
     font-size: $font-size-base;
     margin-bottom: 0;
@@ -8,11 +23,18 @@ form {
     border-color: transparent;
     border-radius: 0;
     border: 0;
+    background-color: rgba(255, 255, 255, .3);
+    transition: background-color .2s;
 
     &:focus {
       outline: 0;
       box-shadow: none;
     }
+  }
+
+  .invalid-feedback {
+    font-size: 14px;
+    position: absolute;
   }
 
   .l-line-left, .l-line-right {

@@ -13,6 +13,7 @@
 import {Options as Component, Vue} from "vue-class-component";
 import anime from "animejs/lib/anime";
 import {Prop} from "vue-property-decorator";
+import VanillaTilt from "vanilla-tilt";
 
 @Component({
   components: {},
@@ -44,12 +45,18 @@ export default class LLines extends Vue {
     tl.add({
       targets: this.$refs.l_line.querySelector(".l-line-content"),
       opacity: 1,
-      scale: [.8, 1]
+      scale: [.8, 1],
+      translateZ: 20,
+      complete: () => {
+        this.$refs.l_line.removeAttribute("data-aos")
+      }
     })
   }
 
   mounted() {
-    this.$refs.l_line.startAnimation = this.startAnimation
+    this.$refs.l_line.startAnimation = this.startAnimation;
+
+    VanillaTilt.init(this.$refs.l_line as HTMLElement, {})
   }
 }
 </script>

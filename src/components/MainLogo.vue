@@ -1,7 +1,7 @@
 <template>
-  <svg class="main-logo" viewBox="0 0 3000 3000" xmlns="http://www.w3.org/2000/svg"
+  <svg class="main-logo" viewBox="0 0 3000 2000" xmlns="http://www.w3.org/2000/svg"
        style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-    <g transform="matrix(1,0,0,1,-14195.8,-4189.54)">
+    <g transform="matrix(1,0,0,1,-14195.8,-4689.54)">
       <g id="Logo-Bianco-SENZA-testo" transform="matrix(1.45453,0,0,1,9506.16,4189.54)">
         <rect x="3224.18" y="0" width="2062.53" height="3000" style="fill:none;"/>
         <g transform="matrix(1069.19,0,0,1558.67,4465.64,2044.93)">
@@ -218,7 +218,7 @@ export default defineComponent({
           easing: "easeOutElastic",
           duration: 1500,
           width: (el: HTMLElement) => {
-            console.log(el.scrollWidth)
+            /*console.log(el.scrollWidth)*/
             return el.scrollWidth
           },
           delay: anime.stagger(100, {start: 500})

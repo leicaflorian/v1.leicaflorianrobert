@@ -4,7 +4,7 @@
       <div class="timeline-side col" :data-aos="this.odd ? 'fade-left' : 'fade-right'">
         <div class="px-md-3 text-start" :class="{'text-md-end': this.odd}">
           <h4 class="timeline-title">{{ title }}</h4>
-          <p class="lead timeline-subtitle">{{ subtitle }}</p>
+          <p class="lead timeline-subtitle" v-html='subtitle'></p>
           <p v-html="content" class="timeline-content text-muted"></p>
         </div>
       </div>
@@ -27,6 +27,7 @@ import {Options as Component, Vue} from "vue-class-component";
 import {Prop} from "vue-property-decorator";
 
 @Component({
+  name: "WorkExperience",
   components: {},
 })
 export default class WorkExperience extends Vue {
