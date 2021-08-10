@@ -6,11 +6,11 @@
 
       <div class="row">
         <div class="col-md-8">
-          <h3 class="text-start mb-3" data-aos="fade-right" data-aos-delay="200">
+          <p class="lead text-start text-start mb-0" data-aos="fade-right" data-aos-delay="200">
             {{ $t("about.hi") }}
-            <strong class="border-bottom border-5 text-primary">
+            <strong class="text-primary fs-2">
               Florian Leica</strong>,
-          </h3>
+          </p>
           <p class="lead text-start" v-html="$t('about.content')" data-aos="fade-right" data-aos-delay="400"></p>
         </div>
 
@@ -64,6 +64,7 @@ export default class About extends Vue {
     font-size: 144px;
     position: relative;
     color: $primary;
+    color: var(--primary);
     height: 216px;
     line-height: 134px;
 

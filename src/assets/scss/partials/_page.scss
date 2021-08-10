@@ -38,8 +38,6 @@
         margin: auto;
         transform-style: preserve-3d;
         transform: perspective(1000px)
-
-
       }
     }
 
@@ -125,6 +123,7 @@
 
 .page-subtitle {
   background-color: $color-primary;
+  background-color: var(--primary);
   color: white;
   padding-left: 8px;
   padding-right: 8px;
@@ -132,4 +131,5 @@
   font-size: $font-size-base;
   margin-top: $spacer * 5;
   text-transform: uppercase;
+  transition: color .3s;
 }

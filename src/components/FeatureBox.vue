@@ -56,6 +56,7 @@ export default class FeatureBox extends Vue {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: $color-primary;
+    background-color: var(--primary);
     border-radius: 50%;
     z-index: 0;
   }*/

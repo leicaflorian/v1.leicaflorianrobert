@@ -13,7 +13,11 @@ var colorPicker = (function() {
   var index = 0;
   function next() {
     index = index++ < colors.length-1 ? index : 0;
-    return colors[index];
+
+    const newColor = colors[index];
+    document.documentElement.style.setProperty('--primary', newColor);
+
+    return newColor;
   }
   function current() {
     return colors[index]

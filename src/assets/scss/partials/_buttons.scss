@@ -34,12 +34,16 @@
 .btn-outline-primary {
   &:before {
     border-top: solid 3px $primary;
+    border-top: solid 3px var(--primary);
     border-left: solid 3px $primary;
+    border-left: solid 3px var(--primary);
   }
 
   &:after {
     border-bottom: solid 3px $primary;
+    border-bottom: solid 3px var(--primary);
     border-right: solid 3px $primary;
+    border-right: solid 3px var(--primary);
   }
 }
 

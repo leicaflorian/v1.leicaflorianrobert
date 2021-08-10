@@ -75,6 +75,8 @@ export default class NavBar extends Vue {
   mainNavbarLinks: NodeList | null = null;
   mainNavbarLine: HTMLElement | null = null;
   mainNavbarItemMobileBorders: HTMLElement | null = null;
+  mainNavbarItemMobileBordersLeft: HTMLElement | null = null;
+  mainNavbarItemMobileBordersRight: HTMLElement | null = null;
 
   $refs!: {
     navbarToggler: HTMLElement
@@ -131,8 +133,8 @@ export default class NavBar extends Vue {
 
   onMenuOpen() {
     const tl = anime.timeline({
-      easing: "easeOutQuart",
-      duration: 400
+      easing: "easeInSine",
+      duration: 200
     })
 
     this.$refs.navbarToggler.querySelector(".navTrigger")?.classList.add("active")
@@ -140,12 +142,12 @@ export default class NavBar extends Vue {
     tl.add({
       targets: this.$refs.navbarToggler.querySelector(".l-line-left"),
       left: "-50%"
-    }, 400)
+    }, 200)
 
     tl.add({
       targets: this.$refs.navbarToggler.querySelector(".l-line-right"),
       right: "-50%",
-    }, 400)
+    }, 200)
 
     tl.add({
       targets: this.$refs.navbarToggler.querySelector(".navTrigger"),
@@ -163,14 +165,14 @@ export default class NavBar extends Vue {
       if (this.mainNavbarItemMobileBorders) {
         this.mainNavbarItemMobileBorders.style.opacity = "1";
       }
-    }, 400)
+    }, 200)
 
   }
 
   onMenuClose() {
     const tl = anime.timeline({
-      easing: "easeOutQuart",
-      duration: 400
+      easing: "easeInSine",
+      duration: 200
     })
 
     this.$refs.navbarToggler.querySelector(".navTrigger")?.classList.remove("active")
@@ -178,12 +180,12 @@ export default class NavBar extends Vue {
     tl.add({
       targets: this.$refs.navbarToggler.querySelector(".l-line-left"),
       left: "50%"
-    }, 400)
+    }, 200)
 
     tl.add({
       targets: this.$refs.navbarToggler.querySelector(".l-line-right"),
       right: "50%"
-    }, 400)
+    }, 200)
 
     tl.add({
       targets: this.$refs.navbarToggler.querySelector(".navTrigger"),
@@ -237,15 +239,41 @@ export default class NavBar extends Vue {
     this.mainNavbarLine.style.left = position.left.toString() + "px";
     this.mainNavbarLine.style.width = position.width.toString() + "px";
 
-    const tl = anime.timeline({
-      duration: 800,
-      easing: "easeInOutExpo"
-    })
+    if (this.mainNavbarItemMobileBordersLeft && this.mainNavbarItemMobileBordersRight) {
+      const left = this.mainNavbarItemMobileBordersLeft
+      const right = this.mainNavbarItemMobileBordersRight
+
+      left.style.width = "0%";
+      right.style.width = "0%";
+
+      setTimeout(() => {
+        if (this.mainNavbarItemMobileBorders) {
+          this.mainNavbarItemMobileBorders.style.top = position.top + "px";
+          this.mainNavbarItemMobileBorders.style.height = position.height + "px";
+        }
+      }, 400)
+
+      setTimeout(() => {
+        left.style.width = "40%";
+        right.style.width = "40%";
+      }, 800)
+
+      setTimeout(() => {
+        if (this.$refs.navbarToggler.getAttribute("aria-expanded") === "true") {
+          this.$refs.navbarToggler.click()
+        }
+      }, 1200)
+    }
+
+    /* const tl = anime.timeline({
+       duration: 800,
+       easing: "easeInOutExpo"
+     })*/
 
 
-    tl.add({
+    /*tl.add({
       targets: this.mainNavbarItemMobileBorders.querySelector(".l-line-left"),
-      width: ["40%", "0", "3px", "40%"],
+      width: ["40%", "0", "40%"],
       direction: 'alternate',
       easing: 'easeInOutSine',
       update: (anim: any) => {
@@ -262,16 +290,16 @@ export default class NavBar extends Vue {
         }
       },
       complete: () => {
-        if (this.$refs.navbarToggler.getAttribute("aria-expanded") === "true") {
+       /!* if (this.$refs.navbarToggler.getAttribute("aria-expanded") === "true") {
           this.$refs.navbarToggler.click()
-        }
+        }*!/
       }
     }, 0)
     tl.add({
       targets: this.mainNavbarItemMobileBorders.querySelector(".l-line-right"),
-      width: ["40%", "0", "3px", "40%"],
+      width: ["40%", "0", "0", "40%"],
       direction: "alternate",
-    }, 0)
+    }, 0)*/
 
   }
 
@@ -314,6 +342,8 @@ export default class NavBar extends Vue {
     this.mainNavbarLinks = this.mainNavbar.querySelectorAll(".nav-link") as NodeList;
     this.mainNavbarLine = this.mainNavbar.querySelector(".nav-line") as HTMLElement;
     this.mainNavbarItemMobileBorders = this.mainNavbar.querySelector(".nav-item-mobile-borders") as HTMLElement;
+    this.mainNavbarItemMobileBordersLeft = this.mainNavbarItemMobileBorders.querySelector(".l-line-left") as HTMLElement;
+    this.mainNavbarItemMobileBordersRight = this.mainNavbarItemMobileBorders.querySelector(".l-line-right") as HTMLElement;
 
     this.$refs.navbarCollapse.addEventListener("show.bs.collapse", () => this.onMenuOpen())
     this.$refs.navbarCollapse.addEventListener("shown.bs.collapse", () => this.onMenuOpened())

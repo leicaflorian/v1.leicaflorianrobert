@@ -14,7 +14,7 @@
     </div>
 
     <div class="w-100" style="background-color: rgba(248, 249, 250, .2)">
-      <div class="container overflow-hidden">
+      <div class="container">
         <div class="timeline-wrapper" ref="timelineWrapper">
           <div class="timeline-line-before" data-aos="fade-left" data-aos-delay="300"></div>
           <WorkExperience v-for="(experience, i) in workExperiences" :key="experience.title" v-bind="experience"

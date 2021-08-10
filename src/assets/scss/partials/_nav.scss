@@ -50,18 +50,15 @@ z-index: 3;
       padding-top: $spacer * 1.5;
       padding-bottom: $spacer * 1.5;
       transition: all .3s;
-      color: white;
-      text-shadow: 0 0 0 white,
-      0 0 0 white,
-      0 0 0 white,
-      0 0 0 white;
+      color: white!important;
 
       &.active {
         color: white !important;
-        text-shadow: -.5px -.5px .1px white,
+        font-weight: bold;
+        /*text-shadow: -.5px -.5px .1px white,
         .5px -.5px .1px white,
         -.5px .5px .1px white,
-        .5px .5px .1px white;
+        .5px .5px .1px white;*/
       }
     }
 
@@ -72,17 +69,10 @@ z-index: 3;
     .nav-item {
       a.nav-link {
         color: white;
-        text-shadow: 0 0 0 white,
-        0 0 0 white,
-        0 0 0 white,
-        0 0 0 white;
+
 
         &.active {
           color: white !important;
-          text-shadow: -.5px -.5px .1px white,
-          .5px -.5px .1px white,
-          -.5px .5px .1px white,
-          .5px .5px .1px white;
         }
       }
     }
@@ -92,6 +82,7 @@ z-index: 3;
 .nav-line {
   height: 3px;
   background: $primary;
+  background: var(--primary);
   width: 100px;
   position: absolute;
   bottom: -5px;

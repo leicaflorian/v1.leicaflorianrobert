@@ -8,6 +8,7 @@
     width: 50%;
     height: $spacer / 3;
     background: $color-primary;
+    background: var(--primary);
   }
 
   .timeline-line-after {
@@ -41,6 +42,7 @@
             content: "";
             position: absolute;
             background: $color-primary;
+            background: var(--primary);
             width: $spacer;
             height: 100%;
             left: 0;
@@ -67,12 +69,14 @@
       .timeline-title {
         font-weight: 600;
         color: $color-primary;
+        color: var(--primary);
       }
 
       .timeline-line {
         width: $spacer * 4;
         height: $spacer / 3;
         background: $color-primary;
+        background: var(--primary);
         margin-left: -$spacer;
         margin-right: $spacer * 2;
         display: inline-block;
@@ -84,6 +88,7 @@
           width: 20px;
           height: 20px;
           border: solid $spacer / 3 $color-primary;
+          border: solid $spacer / 3 var(--primary);
           display: inline-block;
           border-radius: 50%;
           transform: translateY(calc(-50% + (#{$spacer / 3} / 2)));
@@ -94,6 +99,7 @@
 
       .timeline-line-text {
         background: $color-primary;
+        background: var(--primary);
         padding-left: $spacer;
         padding-right: $spacer;
         color: white
