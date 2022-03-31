@@ -1,7 +1,6 @@
 <template>
-  <div class="card h-100">
-    <img :src="project.image ?? '/coming-soon.jpeg'" class="card-img-top" alt="project cover"
-         style="height: 200px; object-fit: cover">
+  <div class="card h-100 card-project">
+    <img :src="project.image ?? '/coming-soon.jpeg'" class="card-img-top" alt="project cover">
     <div class="card-body d-flex flex-column">
       <h5 class="card-title">{{ project.title }}</h5>
       <p class="card-text">{{ project.description }}</p>
@@ -40,6 +39,28 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.card-project {
+  border: solid 1px lightgray;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  flex-direction: column;
 
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-grow: 1;
+
+    .card-title {
+      font-weight: bold;
+    }
+  }
+}
 </style>
