@@ -4,8 +4,8 @@ export default {
     "about-title": "Ecco chi sono",
     "services": "Servizi",
     "services-title": "Di cosa hai bisogno?",
-    "curriculum": "Curriculum",
-    "curriculum-title": "Un po' di storia",
+    "curriculum": "Capacità & Progetti",
+    "curriculum-title": "Tutto è possibile!",
     "contact": "Contatti",
     "contact-title": "Sentiti libero di scrivermi",
   },
@@ -16,20 +16,20 @@ export default {
     hi: "Ciao, sono",
     content: `sviluppatore <strong>Web Full Stack</strong>, <strong>UI e UX Designer</strong>, sviluppatore <strong>Mobile</strong> e molto altro.
               <br><br>
-              Prima di essere tutto questo, sono una persona, molto appassionato di tutto quello che riguarda l'informatica in quanto 
+              Prima di essere tutto questo, sono una persona, molto appassionato di tutto quello che riguarda l'informatica in quanto
               offre opportunità uniche e per questo motivo credo fortemente nel suo potenziale e cerco di trasmettere
-              la mia convinzione / passione anche ad altri. 
+              la mia convinzione / passione anche ad altri.
               <br><br>
-              In particolare adoro il mondo della programmazione in quanto è lo strumento che ci permette di creare questo 
+              In particolare adoro il mondo della programmazione in quanto è lo strumento che ci permette di creare questo
               mondo virtuale, dove l'unico limite è l'immaginazione!
               <br>
-              Questa è stata la convinzione che dall'inizio della mia carriera professionale mi ha spinto a voler imparare 
+              Questa è stata la convinzione che dall'inizio della mia carriera professionale mi ha spinto a voler imparare
               e così ho iniziato a programmare da autodidatta. <br>
-              Giorno dopo giorno, tassello dopo tassello, ho imparato cose nuove, mi sono costantemente messo alla prova, 
-              allargando i miei limiti, a volte anche fallendo, ma tutto questo mi ha fatto crescere professionalmente e acquisire 
+              Giorno dopo giorno, tassello dopo tassello, ho imparato cose nuove, mi sono costantemente messo alla prova,
+              allargando i miei limiti, a volte anche fallendo, ma tutto questo mi ha fatto crescere professionalmente e acquisire
               le capacità necessarie per rendere questa passione un lavoro.
               <br><br>
-              Attualmente ho la splendida opportunità di trasmettere anche ad altri la mia passione, la mia esperienza e le conoscenze acquisite, 
+              Attualmente ho la splendida opportunità di trasmettere anche ad altri la mia passione, la mia esperienza e le conoscenze acquisite,
               formando programmatori Full Stack ed insegnando loro tutto il necessario per poter contribuire attivamente al mondo della programmazione!
               `,
     "year_experience": `anni di <strong>esperienza</strong>`
@@ -74,7 +74,7 @@ export default {
       subtitle: "Mediamotion s.r.l.",
       content: `Ho creato diversi siti utilizzando <strong>Adobe Flex</strong> (Action Script 3), <strong>HTML</strong> e <strong>CSS</strong> come front-end e <strong>Ruby on Rails</strong> e <strong>PHP</strong> come back-end.
                 <br>
-                Ho curato il lato grafico dei siti, il loro effettivo funzionamento con relativa gestione di un database <strong>MySql</strong> ed ho curato anche la parte <strong>SEO</strong> dei siti creati. 
+                Ho curato il lato grafico dei siti, il loro effettivo funzionamento con relativa gestione di un database <strong>MySql</strong> ed ho curato anche la parte <strong>SEO</strong> dei siti creati.
                 Inoltre mi sono occupato anche della gestione e manutenzione del server sul quale erano attivi i vari siti.`
     },
     3: {
@@ -106,7 +106,7 @@ export default {
     },
   },
   contact: {
-    info: `Sono sempre alla ricerca di <strong>nuove sfide</strong>, <strong>nuovi entusiasmanti progetti</strong> e <strong>nuove opportunità per migliorare</strong> come persona e come professionaista.
+    info: `Sono sempre alla ricerca di <strong>nuove sfide</strong>, <strong>nuovi entusiasmanti progetti</strong> e <strong>nuove opportunità per migliorare</strong> come persona e come professionista.
     <h4 class="my-4">La tua richiesta non rientra in queste categorie?</h4>
     Non fa niente, contattami lo stesso.<br>Forse possiamo comunque collaborare, o anche solo conoscerci!`,
     success: `Grazie per avermi contattato!<br>Ti risponderò il prima possibile`,
