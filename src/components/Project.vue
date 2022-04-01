@@ -6,7 +6,7 @@
       <p class="card-text">{{ project.description }}</p>
 
       <div class="text-right mt-auto">
-        <a :href="project.github" target="_blank" class="card-link me-3">
+        <a v-if="project.github" :href="project.github" target="_blank" class="card-link me-3">
           <i class="fab fa-github"></i>
         </a>
 
@@ -54,9 +54,8 @@ export default defineComponent({
   }
 
   .card-body {
-    padding-top: 16px;
-    padding-bottom: 16px;
     flex-grow: 1;
+    padding: 16px 8px;
 
     .card-title {
       font-weight: bold;

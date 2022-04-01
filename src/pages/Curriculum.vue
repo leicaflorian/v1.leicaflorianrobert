@@ -164,17 +164,28 @@ export default class Curriculum extends Vue {
 
   projects: ProjectProps[] = [
     {
+      title: 'Biologica Disinfestazioni',
+      description: 'Official site for the company Biologica Disinfestazioni',
+      image: 'https://uploads-ssl.webflow.com/61af21b02799774300900f28/624709bdd1cbf50f2ace0042_logo%20wide.jpg',
+      link: 'https://biologicadisinfestazioni.it'
+    },
+    {
+      title: 'Global Club App',
+      description: 'Android and iOS application for the company Global Club',
+      image: '/global club.webp',
+      link: 'https://apps.apple.com/it/app/global-club/id1603085370'
+    }, {
+      title: 'My website',
+      description: 'The site you are currently on. Nothing too fancy, just a simple portfolio site.',
+      image: '/banner.jpg',
+      github: 'https://github.com/leicaflorian/slides.com_downloader'
+    },
+    {
       title: 'Slides.com downloader',
       description: 'Chrome/Edge extension that allows you to download slides.com presentations',
       image: 'https://lh3.googleusercontent.com/L9a8S1WWEnY_mAuOurVqI81zIH_N0hAzPGADDKtwEY_OBFr0hiRrEY7Rbu6icKy4Pw1QKAYKCjQSvbwD_atVPUA4ng=w640-h400-e365-rj-sc0x00ffffff',
       link: 'https://chrome.google.com/webstore/detail/slidescom-downloader/bciknjamldhnbbckmgbchmkdcalngnco?hl=it',
       github: 'https://github.com/leicaflorian/leicaflorianrobert'
-    },
-    {
-      title: 'My website',
-      description: 'The site you are currently on. Nothing too fancy, just a simple portfolio site.',
-      image: '/banner.jpg',
-      github: 'https://github.com/leicaflorian/slides.com_downloader'
     },
     {
       title: 'Fold my paper',
