@@ -17,7 +17,7 @@
     "bootstrap": "^5.0.2",
     "core-js": "^3.6.5",
     "emailjs-com": "^3.2.0",
-    "fullpage.js": "^3.1.2",
+    "fullpage.js": "^4.0.5",
     "pageable": "^0.6.8",
     "sass": "^1.32.11",
     "sass-loader": "10",
