@@ -1,24 +1,14 @@
-# leicaflorianrobert
+# V1 of my personal website
+First version of my personal website. Nothing too fancy, just a simple portfolio site.
 
-## Project setup
+> **Warning**
+> This repo has been archived. See the new version of the site [https://github.com/leicaflorian/leicaflorianrobert-v2](https://github.com/leicaflorian/leicaflorianrobert-v2) 
+
+## Project start
 ```
 yarn install
-```
 
-### Compiles and hot-reloads for development
-```
 yarn serve
-```
 
-### Compiles and minifies for production
-```
 yarn build
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
