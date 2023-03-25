@@ -4,7 +4,7 @@ First version of my personal website. Nothing too fancy, just a simple portfolio
 See the site in action at [https://v1.leicaflorianrobert.dev](https://v1.leicaflorianrobert.dev).
 
 > **Warning**
-> This repo has been archived. See the new version of the site [https://github.com/leicaflorian/leicaflorianrobert-v2](https://github.com/leicaflorian/leicaflorianrobert-v2) 
+> This repo is old. See the new version of the site [https://github.com/leicaflorian/leicaflorianrobert-v2](https://github.com/leicaflorian/leicaflorianrobert-v2) 
 
 ## Project start
 ```
