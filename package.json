@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "deploy": "vue-cli-service build && firebase deploy",
+    "serve": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build",
+    "deploy": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build && firebase deploy",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
