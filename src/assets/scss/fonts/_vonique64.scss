@@ -4,7 +4,7 @@
     font-family: 'Vonique64';
     font-style: italic;
     font-weight: normal;
-    src: local('Vonique 64 Italic'), url('assets/fonts/Vonique 64 Italic.woff') format('woff');
+    src: local('Vonique 64 Italic'), url('@/assets/fonts/Vonique 64 Italic.woff') format('woff');
 }
 
 
@@ -12,7 +12,7 @@
     font-family: 'Vonique64';
     font-style: normal;
     font-weight: bold;
-    src: local('Vonique 64 Bold'), url('assets/fonts/Vonique 64 Bold.woff') format('woff');
+    src: local('Vonique 64 Bold'), url('@/assets/fonts/Vonique 64 Bold.woff') format('woff');
 }
 
 
@@ -20,7 +20,7 @@
     font-family: 'Vonique64';
     font-style: italic;
     font-weight: bold;
-    src: local('Vonique 64 Bold Italic'), url('assets/fonts/Vonique 64 Bold Italic.woff') format('woff');
+    src: local('Vonique 64 Bold Italic'), url('@/assets/fonts/Vonique 64 Bold Italic.woff') format('woff');
 }
 
 
@@ -28,5 +28,5 @@
     font-family: 'Vonique64';
     font-style: normal;
     font-weight: normal;
-    src: local('Vonique64'), url('assets/fonts/Vonique64.woff') format('woff');
+    src: local('Vonique64'), url('@/assets/fonts/Vonique64.woff') format('woff');
 }

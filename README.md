@@ -7,10 +7,14 @@ See the site in action at [https://v1.leicaflorianrobert.dev](https://v1.leicafl
 > This repo is old. See the new version of the site [https://github.com/leicaflorian/leicaflorianrobert-v2](https://github.com/leicaflorian/leicaflorianrobert-v2) 
 
 ## Project start
+Requires Node.js 20.19+ (see `.nvmrc`).
+
 ```
 yarn install
 
-yarn serve
+yarn dev      # dev server
 
-yarn build
+yarn build    # production build in dist/
+
+yarn preview  # serve the production build locally
 ```

@@ -1,8 +1,10 @@
+@use "sass:math";
+
 .skill-level {
   margin-bottom: $spacer * 1.5;
 
   .progress {
-    height: $spacer / 3;
+    height: math.div($spacer, 3);
   }
 
   .progress-bar {
