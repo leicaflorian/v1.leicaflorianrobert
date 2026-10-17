@@ -18,6 +18,9 @@ import {Prop} from "vue-property-decorator";
 
 @Component({
   components: {},
+  // Declared so Vue 3 doesn't also bind the parent's @click to the root <button>,
+  // which made every click fire twice
+  emits: ["click"],
 })
 export default class Button extends Vue {
   @Prop({type: String, default: "btn-primary"})
