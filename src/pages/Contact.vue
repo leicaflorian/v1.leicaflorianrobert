@@ -96,7 +96,7 @@ export default class Contact extends Vue {
       presence: true,
       length: {
         minimum: 4,
-        message: "must be at least 6 characters"
+        tooShort: "must be at least %{count} characters"
       }
     },
     email: {
